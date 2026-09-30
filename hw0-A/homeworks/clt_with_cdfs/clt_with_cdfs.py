@@ -10,7 +10,7 @@ def main():
     ks = [1, 8, 64, 512]
     for k in ks:
         Y_k = np.sum(np.sign(np.random.randn(n, k)) * np.sqrt(1.0 / k), axis=1)
-        plt.step(sorted(Y_k), np.arange(1, n + 1) / float(n), label=str(k))
+        plt.plot(sorted(Y_k), np.arange(1, n + 1) / float(n), label=str(k))
 
     # Plot gaussian
     Z = np.random.randn(n)
@@ -25,11 +25,15 @@ def plot_settings():
     plt.legend(
         loc="lower right", bbox_to_anchor=(1.1, 0.2), fancybox=True, shadow=True, ncol=1
     )
-    # TODO: Look through matplotlib documentation and:
+    plt.xlim([-3,3])
+    plt.xlabel("Observations")
+    plt.ylabel("Probability")
+    plt.show()
     #   - limit x axis to be between -3 and 3
     #   - Add label "Observations" on x axis
     #   - Add label "Probability" on y axis
     #   - Render the plot with plt.show() call
+
 
     raise NotImplementedError("Your Code Goes Here")
 
